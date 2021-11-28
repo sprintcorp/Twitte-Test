@@ -46,7 +46,7 @@ exports.deletePost = asyncHandler(async(req, res, next) => {
     console.log("user2 " + post.user._id)
     if (req.user.id != post.user._id) {
         return next(
-            new ErrorResponse(`User is not authoried to delete post`, 403)
+            new ErrorResponse(`User is not authorized to delete post made by another user`, 403)
         );
     }
 
